@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="angular_d3_stock_charts">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="stock_charts_project_zrogers.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- Site body and main data controller -->
+<body ng-controller="DataController as data">
+
+<div class="wrapper">
+    <div class="container-fluid" id="top">
+        <div class="row">
+            <div class="col-xs-12">
+                <form ng-submit="data.submit()" class="form-inline">
+
+                    <input type="text" data-ng-model="data.stock.symbol" class="input-large" id="input-symbol"
+                           placeholder="Get Chart">
+                    <button type="submit" class="btn btn-sm">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div ng-controller="DrawController as draw">
+                    <button type="button" class="btn btn-xs" ng-click="draw.sketch()">Sketch
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <!-- Clear Annotations Button -->
+                    <button class="btn-btn-xs" ng-click="draw.clear()">Clear
+                        <span class="glyphicon glyphicon-remove" ></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="area">
+        <chart></chart>
+    </div>
+    <div class="push"></div>
+</div>
+
+<div class="footer">
+    <div class="footer-text">
+        <p>Zachary Rogers - JHU 605.462 Final Project - 05/14/2018</p>
+    </div>
+    <!--<form ng-submit="data.submit()" class="form-inline">-->
+        <!--<div class="btn-group btn-group-justified" data-toggle="buttons">-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="30">1M</label>-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="90">3M</label>-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="180">6M</label>-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="300">YTD</label>-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="360">1Y</label>-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="720">2Y</label>-->
+            <!--<label class="btn btn-default btn-md" ng-model="data.time" data-ng-change="data.submit()" btn-radio="1800">5Y</label>-->
+        <!--</div>-->
+    <!--</form>-->
+</div>
+</body>
+</html>

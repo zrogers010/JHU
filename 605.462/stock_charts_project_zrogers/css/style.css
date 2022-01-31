@@ -1,0 +1,96 @@
+{
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -2em;
+}
+
+.footer, .push {
+    height: 2em;
+}
+
+
+/* chart style */
+.axis {
+    font: 10px sans-serif;
+}
+
+.y-axis {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.overlay {
+    fill: none;
+    stroke: 5;
+    pointer-events: all;
+}
+
+.trend {
+    stroke: rgb(255, 0, 0);
+    stroke-width: 2;
+    shape-rendering: optimizeSpeed;
+}
+
+.focusLine {
+    fill: none;
+    stroke: #484848;
+    stroke-width: 2px;
+    stroke-dasharray: 2, 4;
+}
+
+.focusCircle {
+    fill: #484848;
+}
+
+.draw-path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+.tb-text {
+    text-align: right;
+
+}
+
+.tb-val {
+    text-align: right;
+
+}
+
+.is-clicked {
+    background-color: red;
+}
+
+.textbox-node {
+    font-size: 10px;
+}
+
+.textbox-div:hover {
+    border: 2px solid;
+}
+
+.footer-text {
+    text-align: center;
+}
+
+#input-symbol {text-transform: uppercase;}
+::-webkit-input-placeholder { text-transform: none; }
+::-moz-placeholder { text-transform: none; }
+:-ms-input-placeholder { text-transform: none; }
+input:-moz-placeholder { text-transform: none; }
