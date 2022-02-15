@@ -1,0 +1,207 @@
+JHU 605.421 PA2 
+Zachary Rogers
+Summer 2016
+
+
+ ########## Problem 1 (a) ##########
+
+Show Radix Sort on: COW DOG SEA RUG ROW MOB BOX TAB BAR EAR TAR DIG BIG TEA NOW FOX 
+
+ *Column 0 is the left-most letter in each word in this example.
+
+Sorting words by Column 2:
+ SEA
+ TEA
+ MOB
+ TAB
+ DOG
+ RUG
+ DIG
+ BIG
+ BAR
+ EAR
+ TAR
+ COW
+ ROW
+ NOW
+ BOX
+ FOX
+
+Sorting words by Column 1:
+ TAB
+ BAR
+ EAR
+ TAR
+ SEA
+ TEA
+ DIG
+ BIG
+ MOB
+ DOG
+ COW
+ ROW
+ NOW
+ BOX
+ FOX
+ RUG
+
+Sorting words by Column 0:
+ BAR
+ BIG
+ BOX
+ COW
+ DIG
+ DOG
+ EAR
+ FOX
+ MOB
+ NOW
+ ROW
+ RUG
+ SEA
+ TAB
+ TAR
+ TEA
+
+Resulting sorted array: 
+BAR BIG BOX COW DIG DOG EAR FOX MOB NOW ROW RUG SEA TAB TAR TEA 
+
+
+ ########## Problem 1 (b) ##########
+
+Show Bucket Sort on: 0.79 0.13 0.16 0.64 0.39 0.2 0.89 0.53 0.71 0.42 
+
+Making empty buckets:
+ [[], [], [], [], [], [], [], [], [], []]
+
+Putting numbers in their buckets:
+
+  Inserting number: 0.790000
+  Resulting buckets: [[], [], [], [], [], [], [], [0.79], [], []]
+
+  Inserting number: 0.130000
+  Resulting buckets: [[], [0.13], [], [], [], [], [], [0.79], [], []]
+
+  Inserting number: 0.160000
+  Resulting buckets: [[], [0.13, 0.16], [], [], [], [], [], [0.79], [], []]
+
+  Inserting number: 0.640000
+  Resulting buckets: [[], [0.13, 0.16], [], [], [], [], [0.64], [0.79], [], []]
+
+  Inserting number: 0.390000
+  Resulting buckets: [[], [0.13, 0.16], [], [0.39], [], [], [0.64], [0.79], [], []]
+
+  Inserting number: 0.200000
+  Resulting buckets: [[], [0.13, 0.16], [0.2], [0.39], [], [], [0.64], [0.79], [], []]
+
+  Inserting number: 0.890000
+  Resulting buckets: [[], [0.13, 0.16], [0.2], [0.39], [], [], [0.64], [0.79], [0.89], []]
+
+  Inserting number: 0.530000
+  Resulting buckets: [[], [0.13, 0.16], [0.2], [0.39], [], [0.53], [0.64], [0.79], [0.89], []]
+
+  Inserting number: 0.710000
+  Resulting buckets: [[], [0.13, 0.16], [0.2], [0.39], [], [0.53], [0.64], [0.79, 0.71], [0.89], []]
+
+  Inserting number: 0.420000
+  Resulting buckets: [[], [0.13, 0.16], [0.2], [0.39], [0.42], [0.53], [0.64], [0.79, 0.71], [0.89], []]
+
+Pull elements out of their buckets in-order:
+ 0.13
+ 0.16
+ 0.2
+ 0.39
+ 0.42
+ 0.53
+ 0.64
+ 0.71
+ 0.79
+ 0.89
+
+Resulting sorted array:
+[0.13, 0.16, 0.2, 0.39, 0.42, 0.53, 0.64, 0.71, 0.79, 0.89]
+
+
+
+ ########## Problem 2 ##########
+
+Creating linked list stack A: []
+Creating linked list stack B: []
+
+Test array a: [79, 13, 16, 64, 39]
+Test array b: [1, 2, 3, 4, 5]
+
+
+ ### PushA() ###
+
+
+Pushing 79 onto stack A
+[79]
+
+Pushing 13 onto stack A
+[13, 79]
+
+Pushing 16 onto stack A
+[16, 13, 79]
+
+Pushing 64 onto stack A
+[64, 16, 13, 79]
+
+Pushing 39 onto stack A
+[39, 64, 16, 13, 79]
+
+
+ ### PushB() ###
+
+
+Pushing 1 onto stack B
+[1]
+
+Pushing 2 onto stack B
+[2, 1]
+
+Pushing 3 onto stack B
+[3, 2, 1]
+
+Pushing 4 onto stack B
+[4, 3, 2, 1]
+
+Pushing 5 onto stack B
+[5, 4, 3, 2, 1]
+
+
+ ### MultiPopA() ###
+
+MultiPopA(2):
+Stack A: [39, 64, 16, 13, 79]
+ Popping from A: 39
+ Popping from A: 64
+Resulting Stack A: [16, 13, 79]
+
+
+ ### MultiPopB() ###
+
+MultiPopB(3):
+Stack B: [5, 4, 3, 2, 1]
+ Popping from B: 5
+ Popping from B: 4
+ Popping from B: 3
+Resulting Stack B: [2, 1]
+
+
+ ### Transfer() ###
+
+Transfer(2): 
+Transfer 2 from A to B: 
+ A = [16, 13, 79]
+ B = [2, 1]
+
+ Pop from A: 16 <- [13, 79]
+ Push to B: 16  -> [16, 2, 1]
+
+ Pop from A: 13 <- [79]
+ Push to B: 13  -> [13, 16, 2, 1]
+
+Resulting stacks: 
+ A: [79]
+ B: [13, 16, 2, 1]
